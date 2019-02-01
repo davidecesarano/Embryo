@@ -1,5 +1,5 @@
 <?php 
-
+    
     /**
      * RenderHttpErrorMiddleware
      */
@@ -13,7 +13,7 @@
     use Psr\Http\Message\ResponseInterface;
     use Psr\Http\Server\MiddlewareInterface;
     use Psr\Http\Server\RequestHandlerInterface;
-
+    
     class RenderHttpErrorMiddleware implements MiddlewareInterface 
     {   
         /**
@@ -32,7 +32,7 @@
             $this->view = $view;
             return $this;
         }
-
+        
         /**
          * Process a server request and return a response.
          *
@@ -43,9 +43,8 @@
         public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
         {
             $response = $handler->handle($request);
-
             try {
-                if ($response->getStatusCode() >= 400 && $response->getStatusCode() <= 451) {
+                if ($response->getStatusCode() == 404 || $response->getStatusCode() == 405) {
                     return $this->render($response->getStatusCode(), $response->getReasonPhrase());
                 }
                 return $response;

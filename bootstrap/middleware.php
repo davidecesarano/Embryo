@@ -55,4 +55,7 @@
     $app->addMiddleware(new Embryo\Routing\Middleware\MethodOverrideMiddleware);
     
     // RoutingMiddleware
-    $app->addMiddleware(new Embryo\Routing\Middleware\RoutingMiddleware($container));
+    $app->addMiddleware(new Embryo\Routing\Middleware\RoutingMiddleware($router));
+
+    // RequestHandlerMiddleware
+    $app->addMiddleware(new Embryo\Routing\Middleware\RequestHandlerMiddleware($container));
