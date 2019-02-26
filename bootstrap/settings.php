@@ -10,9 +10,9 @@
 
         'app' => [
             'root_path' => ROOT_PATH,
-            'name'      => getenv('APP_NAME', 'Embryo'),
-            'url'       => getenv('APP_URL', 'localhost'),
-            'path'      => getenv('APP_PATH', ''),
+            'name'      => getenv('APP_NAME'),
+            'url'       => getenv('APP_URL'),
+            'path'      => getenv('APP_PATH'),
             'charset'   => 'utf-8',
             'locale'    => 'en'
         ],
@@ -25,11 +25,11 @@
 
         'database' => [
             'local' => [
-                'engine'   => getenv('DB_ENGINE', 'mysql'),
-                'host'     => getenv('DB_HOST', '127.0.0.1'),
-                'name'     => getenv('DB_NAME', ''),
-                'user'     => getenv('DB_USER', ''),  
-                'password' => getenv('DB_PASSWORD', ''),
+                'engine'   => getenv('DB_ENGINE'),
+                'host'     => getenv('DB_HOST'),
+                'name'     => getenv('DB_NAME'),
+                'user'     => getenv('DB_USER'),  
+                'password' => getenv('DB_PASSWORD'),
                 'charset'  => 'utf8mb4',
                 'options'  => [
                     \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
@@ -44,8 +44,8 @@
         */
 
         'errors' => [
-            'displayDetails' => getenv('ERROR_DISPLAY', true),
-            'logErrors'      => getenv('ERROR_LOG', true)
+            'displayDetails' => getenv('ERROR_DISPLAY'),
+            'logErrors'      => getenv('ERROR_LOG')
         ],
 
         /*
@@ -56,10 +56,10 @@
 
         'mail' => [
             'local' => [
-                'host'       => getenv('MAIL_HOST', ''),
-                'port'       => getenv('MAIL_PORT', ''),
-                'username'   => getenv('MAIL_USERNAME', ''),
-                'password'   => getenv('MAIL_PASSWORD', ''),
+                'host'       => getenv('MAIL_HOST'),
+                'port'       => getenv('MAIL_PORT'),
+                'username'   => getenv('MAIL_USERNAME'),
+                'password'   => getenv('MAIL_PASSWORD'),
                 'exceptions' => true,
                 'debug'      => 2,
                 'html'       => true,
