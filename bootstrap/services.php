@@ -21,3 +21,4 @@
     $app->service(Embryo\Services\ValidationService::class);
     $app->service(Embryo\Services\TranslateService::class);
     $app->service(App\Services\MailService::class);
+    $app->service(App\Services\WebpackService::class);

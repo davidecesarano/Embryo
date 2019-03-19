@@ -131,5 +131,17 @@
 
         'translate' => [
             'languagePath' => ROOT_PATH.'res/lang'
+        ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Webpack
+        |--------------------------------------------------------------------------
+        */
+
+        'webpack' => [
+            'mode'   => getenv('WEBPACK_MODE'),
+            'path'   => getenv('WEBPACK_PATH'),
+            'bundle' => getenv('WEBPACK_BUNDLE')
         ]
     ];

@@ -1,3 +1,5 @@
-/vendor/
-composer.lock
 .env
+composer.lock
+/vendor/
+/webpack/node_modules/
+/webpack/package-lock.json
