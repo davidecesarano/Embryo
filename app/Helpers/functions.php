@@ -1,0 +1,7 @@
+<?php 
+
+    /**
+     * Functions
+     * 
+     * PHP functions.
+     */
