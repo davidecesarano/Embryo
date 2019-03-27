@@ -48,9 +48,6 @@
     // MinifyHtmlMiddleware
     $app->addMiddleware(Embryo\View\Middleware\MinifyHtmlMiddleware::class);
 
-    // BodyParserMiddleware
-    $app->addMiddleware(App\Middleware\BodyParserMiddleware::class);
-
     // MethodOverrideMiddleware
     $app->addMiddleware(new Embryo\Routing\Middleware\MethodOverrideMiddleware);
     
