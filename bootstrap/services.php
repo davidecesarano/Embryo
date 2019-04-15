@@ -2,31 +2,24 @@
 
     /*
     |--------------------------------------------------------------------------
-    | Embryo Services
+    | Services
     |--------------------------------------------------------------------------
     */
 
-    $app->service(Embryo\Services\ServerRequestService::class);
-    $app->service(Embryo\Services\ResponseService::class);
-    $app->service(Embryo\Services\BaseUrlService::class);
-    $app->service(Embryo\Services\BasePathService::class);
-    $app->service(Embryo\Services\RequestHandlerService::class);
-    $app->service(Embryo\Services\RouterService::class);
-    $app->service(Embryo\Services\LoggerService::class);
-    $app->service(Embryo\Services\ErrorHandlerService::class);
-    $app->service(Embryo\Services\SessionService::class);
-    $app->service(Embryo\Services\CacheService::class);
-    $app->service(Embryo\Services\ViewService::class);
-    $app->service(Embryo\Services\DatabaseService::class);
-    $app->service(Embryo\Services\ValidationService::class);
-    $app->service(Embryo\Services\TranslateService::class);
-    
-    /*
-    |--------------------------------------------------------------------------
-    | App Services
-    |--------------------------------------------------------------------------
-    */
-
+    $app->service(App\Services\ServerRequestService::class);
+    $app->service(App\Services\ResponseService::class);
+    $app->service(App\Services\BaseUrlService::class);
+    $app->service(App\Services\BasePathService::class);
+    $app->service(App\Services\RequestHandlerService::class);
+    $app->service(App\Services\RouterService::class);
+    $app->service(App\Services\LoggerService::class);
+    $app->service(App\Services\ErrorHandlerService::class);
+    $app->service(App\Services\SessionService::class);
+    $app->service(App\Services\CacheService::class);
+    $app->service(App\Services\ViewService::class);
+    $app->service(App\Services\DatabaseService::class);
+    $app->service(App\Services\ValidationService::class);
+    $app->service(App\Services\TranslateService::class);
     $app->service(App\Services\MailService::class);
     $app->service(App\Services\JWTService::class);
     $app->service(App\Services\WebpackService::class);
