@@ -2,7 +2,7 @@
 
     /*
     |--------------------------------------------------------------------------
-    | Services
+    | Embryo Services
     |--------------------------------------------------------------------------
     */
 
@@ -20,5 +20,13 @@
     $app->service(Embryo\Services\DatabaseService::class);
     $app->service(Embryo\Services\ValidationService::class);
     $app->service(Embryo\Services\TranslateService::class);
+    
+    /*
+    |--------------------------------------------------------------------------
+    | App Services
+    |--------------------------------------------------------------------------
+    */
+
     $app->service(App\Services\MailService::class);
+    $app->service(App\Services\JWTService::class);
     $app->service(App\Services\WebpackService::class);
