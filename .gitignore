@@ -1,5 +1,5 @@
 .env
 composer.lock
+package-lock.json
 /vendor/
-/webpack/node_modules/
-/webpack/package-lock.json
+/node_modules/

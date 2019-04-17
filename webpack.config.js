@@ -3,9 +3,9 @@ var webpack = require('webpack')
 var VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
-    entry: './src/main.js',
+    entry: './res/js/main.js',
     output: {
-        path: path.resolve(__dirname, '../public/assets'),
+        path: path.resolve(__dirname, './public/assets'),
         publicPath: '/',
         filename: 'js/bundle.js'
     },
@@ -53,7 +53,9 @@ module.exports = {
     },
     devServer: {
         contentBase: false,
-        hot: true,
+        disableHostCheck: true,
+        host: 'localhost',
+        port: '8080',
         headers: {
             'Access-Control-Allow-Origin': '*'
         }
@@ -70,12 +72,6 @@ if (process.env.NODE_ENV === 'production') {
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                warnings: false
             }
         }),
         new webpack.LoaderOptionsPlugin({
