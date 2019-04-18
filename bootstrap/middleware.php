@@ -11,7 +11,6 @@
     $error     = $container['errorHandler'];
     $view      = $container['view'];
     $session   = $container['session'];
-    $router    = $container['router'];
     
     // RenderHttpErrorMiddleware
     $app->addMiddleware(
@@ -47,12 +46,3 @@
 
     // MinifyHtmlMiddleware
     $app->addMiddleware(Embryo\View\Middleware\MinifyHtmlMiddleware::class);
-
-    // MethodOverrideMiddleware
-    $app->addMiddleware(new Embryo\Routing\Middleware\MethodOverrideMiddleware);
-    
-    // RoutingMiddleware
-    $app->addMiddleware(new Embryo\Routing\Middleware\RoutingMiddleware($router));
-
-    // RequestHandlerMiddleware
-    $app->addMiddleware(new Embryo\Routing\Middleware\RequestHandlerMiddleware($container));
