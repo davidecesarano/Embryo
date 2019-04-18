@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "davidecesarano/embryo-framework": "2.*",
+        "davidecesarano/embryo-framework": "~2.0",
         "davidecesarano/embryo-session": "dev-master",
         "davidecesarano/embryo-view": "dev-master",
         "davidecesarano/embryo-logger": "dev-master",
