@@ -19,7 +19,8 @@
         public function register()
         {
             $this->container->set('response', function(){
-                return (new ResponseFactory)->createResponse(200);
+                $response = (new ResponseFactory)->createResponse(200);
+                return $response->withHeader('Content-Type', 'text/html; charset=UTF-8');
             });
         }
     }
