@@ -43,5 +43,6 @@
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
