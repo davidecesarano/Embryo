@@ -145,17 +145,5 @@
             'iss'        => getenv('JWT_ISS'),
             'nbf'        => getenv('JWT_NBF'),
             'exp'        => getenv('JWT_EXP'),
-        ],
-
-        /*
-        |--------------------------------------------------------------------------
-        | Webpack
-        |--------------------------------------------------------------------------
-        */
-
-        'webpack' => [
-            'mode'   => getenv('WEBPACK_MODE'),
-            'path'   => getenv('WEBPACK_PATH'),
-            'bundle' => getenv('WEBPACK_BUNDLE')
         ]
     ];

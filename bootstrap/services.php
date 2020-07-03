@@ -22,4 +22,3 @@
     $app->service(App\Services\TranslateService::class);
     $app->service(App\Services\MailService::class);
     $app->service(App\Services\JWTService::class);
-    $app->service(App\Services\WebpackService::class);
