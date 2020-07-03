@@ -20,7 +20,8 @@
         {
             $this->container->set(View::class, function($container){
                 $settings = $container->get('settings');
-                return new View($settings['view']['templatePath'], $settings['view']['compilerPath']);
+                $view = new View($settings['view']['templatePath'], $settings['view']['compilerPath']);
+                return $view->setExtension('embryo');
             });
 
             $this->container->alias('view', View::class);
