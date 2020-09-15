@@ -44,7 +44,7 @@
         {
             $response = $handler->handle($request);
             try {
-                if ($response->getStatusCode() == 404 || $response->getStatusCode() == 405) {
+                if ($response->getStatusCode() >= 400 && $response->getStatusCode() <= 451) {
                     return $this->render($response->getStatusCode(), $response->getReasonPhrase());
                 }
                 return $response;
