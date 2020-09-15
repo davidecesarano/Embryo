@@ -6,19 +6,21 @@
     |--------------------------------------------------------------------------
     */
 
-    $app->service(App\Services\ServerRequestService::class);
-    $app->service(App\Services\ResponseService::class);
-    $app->service(App\Services\BaseUrlService::class);
-    $app->service(App\Services\BasePathService::class);
-    $app->service(App\Services\RequestHandlerService::class);
-    $app->service(App\Services\RouterService::class);
-    $app->service(App\Services\LoggerService::class);
-    $app->service(App\Services\ErrorHandlerService::class);
-    $app->service(App\Services\SessionService::class);
-    $app->service(App\Services\CacheService::class);
-    $app->service(App\Services\ViewService::class);
-    $app->service(App\Services\DatabaseService::class);
-    $app->service(App\Services\ValidationService::class);
-    $app->service(App\Services\TranslateService::class);
-    $app->service(App\Services\MailService::class);
-    $app->service(App\Services\JWTService::class);
+    $app->service([
+        App\Services\ServerRequestService::class,
+        App\Services\ResponseService::class,
+        App\Services\BaseUrlService::class,
+        App\Services\BasePathService::class,
+        App\Services\RequestHandlerService::class,
+        App\Services\RouterService::class,
+        App\Services\LoggerService::class,
+        App\Services\ErrorHandlerService::class,
+        App\Services\SessionService::class,
+        App\Services\CacheService::class,
+        App\Services\ViewService::class,
+        App\Services\DatabaseService::class,
+        App\Services\ValidationService::class,
+        App\Services\TranslateService::class,
+        App\Services\MailService::class,
+        App\Services\JWTService::class
+    ]);

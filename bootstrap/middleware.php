@@ -43,6 +43,3 @@
         (new Embryo\Translate\Middleware\SetLocaleMiddleware)
             ->setLanguage($settings['app']['locale'])
     );
-
-    // MinifyHtmlMiddleware
-    $app->addMiddleware(Embryo\View\Middleware\MinifyHtmlMiddleware::class);
