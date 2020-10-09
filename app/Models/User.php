@@ -1,13 +1,20 @@
 <?php 
 
+    /**
+     * User
+     */
+
     namespace App\Models;
 
-    use Embryo\Application\Model;
+    use Embryo\Model;
 
     class User extends Model
     {
-        public function getAll()
+        /**
+         * Example method.
+         */
+        public function all()
         {
-            return $this->pdo->table('user')->select()->all();
+            return $this->pdo->table('user')->get();
         }
     }
