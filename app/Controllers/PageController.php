@@ -10,11 +10,12 @@
 
     class PageController extends Controller
     {   
-        public function index($name)
+        /**
+         * Home
+         */
+        public function index()
         {
             $view = $this->get('view');
-            return $view->render($this->response, 'home', [
-                'title' => trans('hello', ['name' => ucfirst($name)])
-            ]);
+            return $view->render($this->response, 'home', ['title' => 'Embryo 2']);
         }
     }

@@ -1,8 +1,9 @@
 <?php
 
-    $app->get('/', function($request, $response){
-        $view = $this->get('view');
-        return $view->render($response, 'home', ['title' => 'Embryo 2']);
-    });
+    /*
+    |--------------------------------------------------------------------------
+    | Web Routes
+    |--------------------------------------------------------------------------
+    */
 
-    $app->get('/controller/{name}', 'PageController@index');
+    $app->get('/', 'PageController@index');
