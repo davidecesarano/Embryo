@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "davidecesarano/embryo-framework": "~2.0",
+        "davidecesarano/embryo-framework": "~2.1",
         "davidecesarano/embryo-session": "dev-master",
         "davidecesarano/embryo-view": "dev-master",
         "davidecesarano/embryo-logger": "dev-master",
@@ -24,6 +24,7 @@
         "davidecesarano/embryo-csrf": "dev-master",
         "davidecesarano/embryo-translate": "dev-master",
         "davidecesarano/embryo-assets": "dev-master",
+        "davidecesarano/embryo-client": "dev-master",
         "vlucas/phpdotenv": "v2.5.1",
         "phpmailer/phpmailer": "~6.0",
         "lcobucci/jwt": "~3.0"
@@ -45,5 +46,8 @@
         ]
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.59"
+    }
 }
