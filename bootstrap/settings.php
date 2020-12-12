@@ -44,8 +44,8 @@
         */
 
         'errors' => [
-            'displayDetails' => getenv('ERROR_DISPLAY'),
-            'logErrors'      => getenv('ERROR_LOG')
+            'displayDetails' => filter_var(getenv('ERROR_DISPLAY'), FILTER_VALIDATE_BOOLEAN),
+            'logErrors'      => filter_var(getenv('ERROR_LOG'), FILTER_VALIDATE_BOOLEAN)
         ],
 
         /*
@@ -132,18 +132,5 @@
 
         'translate' => [
             'languagePath' => ROOT_PATH.'res/lang'
-        ],
-
-        /*
-        |--------------------------------------------------------------------------
-        | JSON WEB TOKEN
-        |--------------------------------------------------------------------------
-        */
-
-        'jwt' => [
-            'secret_key' => getenv('JWT_SECRET_KEY'),
-            'iss'        => getenv('JWT_ISS'),
-            'nbf'        => getenv('JWT_NBF'),
-            'exp'        => getenv('JWT_EXP'),
         ]
     ];

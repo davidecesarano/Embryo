@@ -14,6 +14,11 @@
     class Mail 
     {
         /**
+         * @var array $account
+         */
+        private $account = [];
+
+        /**
          * Set account.
          *
          * @param array $account
@@ -27,7 +32,7 @@
          * Set PHPMailer object.
          *
          * @param string $name
-         * @throws RuntimeException
+         * @throws \RuntimeException
          * @return PHPMailer
          */
         public function account(string $name = 'local'): PHPMailer
@@ -46,7 +51,7 @@
             $smtpsecure = $this->account[$name]['smtpsecure'];
             $mail       = new PHPMailer($exceptions);
 
-            $this->CharSet   = 'UTF-8';
+            $mail->CharSet   = 'UTF-8';
             $mail->SMTPDebug = $debug;
             $mail->isSMTP();
 

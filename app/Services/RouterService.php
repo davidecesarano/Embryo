@@ -18,9 +18,9 @@
          */
         public function register()
         {
-            $this->container->set('router', function($container){
+            $this->container->set('router', function($container) {
                 
-                $router = new Router($container['requestHandler']);
+                $router = new Router;
                 $router = $router->setNamespace($container['settings']['routing']['namespace']);
                 $router = $router->setBasePath($container['basePath']);
                 return $router;

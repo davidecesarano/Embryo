@@ -8,7 +8,7 @@
     
     use Embryo\View\View;
     use Embryo\Http\Factory\ResponseFactory;
-    use Embryo\Routing\Exceptions\{MethodNotAllowed, NotFoundException};
+    use Embryo\Routing\Exceptions\{MethodNotAllowedException, NotFoundException};
     use Psr\Http\Message\ServerRequestInterface;
     use Psr\Http\Message\ResponseInterface;
     use Psr\Http\Server\MiddlewareInterface;
@@ -49,9 +49,9 @@
                 }
                 return $response;
             } catch (NotFoundException $e) {
-                return $this->render(404, $response->getMessage());
-            } catch (MethodNotAllowed $e) {
-                return $this->render(405, $response->getMessage());
+                return $this->render(404, $e->getMessage());
+            } catch (MethodNotAllowedException $e) {
+                return $this->render(405, $e->getMessage());
             }            
         }
         
