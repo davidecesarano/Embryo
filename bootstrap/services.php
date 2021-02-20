@@ -1,26 +1,27 @@
 <?php 
 
-    /*
-    |--------------------------------------------------------------------------
-    | Services
-    |--------------------------------------------------------------------------
-    */
+    /**
+     * Services
+     * 
+     * @var Embryo\Application $app
+     */
 
     $app->service([
-        App\Services\ServerRequestService::class,
-        App\Services\ResponseService::class,
-        App\Services\BaseUrlService::class,
-        App\Services\BasePathService::class,
-        App\Services\RequestHandlerService::class,
-        App\Services\RouterService::class,
-        App\Services\LoggerService::class,
-        App\Services\ErrorHandlerService::class,
-        App\Services\SessionService::class,
-        App\Services\CacheService::class,
-        App\Services\ViewService::class,
-        App\Services\DatabaseService::class,
-        App\Services\ValidationService::class,
-        App\Services\TranslateService::class,
+        Embryo\Service\ServerRequestService::class,
+        Embryo\Service\ResponseService::class,
+        Embryo\Service\BaseUrlService::class,
+        Embryo\Service\BasePathService::class,
+        Embryo\Service\RequestHandlerService::class,
+        Embryo\Service\RouterService::class,
+        Embryo\Service\LoggerService::class,
+        Embryo\Service\ErrorHandlerService::class,
+        Embryo\Service\SessionService::class,
+        Embryo\Service\CacheService::class,
+        Embryo\Service\ViewService::class,
+        Embryo\Service\DatabaseService::class,
+        Embryo\Service\ValidationService::class,
+        Embryo\Service\TranslateService::class,
+        Embryo\Service\HttpClientService::class,
         App\Services\MailService::class,
-        App\Services\JWTService::class
+        App\Services\JWTService::class,
     ]);

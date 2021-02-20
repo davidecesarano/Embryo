@@ -1,5 +1,6 @@
 <?php 
 
+    use Dotenv\Dotenv;
     use Embryo\Application as App;
     use Embryo\Facade;
 
@@ -9,7 +10,7 @@
     |--------------------------------------------------------------------------
     */
 
-    $dotenv = new Dotenv\Dotenv(ROOT_PATH);
+    $dotenv = new Dotenv(ROOT_PATH);
     $dotenv->load();
 
     /*
@@ -30,36 +31,16 @@
 
     /*
     |--------------------------------------------------------------------------
-    | SERVICES
+    | IMPORT SERVICES, MIDDLEWARES AND ROUTES
     |--------------------------------------------------------------------------
     */
 
-    require_once ROOT_PATH.'bootstrap/services.php';
-
-    /*
-    |--------------------------------------------------------------------------
-    | FACADE
-    |--------------------------------------------------------------------------
-    */
-    
-    Facade::init($app->getContainer());
-
-    /*
-    |--------------------------------------------------------------------------
-    | MIDDLEWARES
-    |--------------------------------------------------------------------------
-    */
-    
-    require_once ROOT_PATH.'bootstrap/middleware.php';
-
-    /*
-    |--------------------------------------------------------------------------
-    | ROUTES
-    |--------------------------------------------------------------------------
-    */
-
-    require_once ROOT_PATH.'routes/api.php';    
-    require_once ROOT_PATH.'routes/app.php';
+    $app->import([
+        app_path('bootstrap/services.php'),
+        app_path('bootstrap/middleware.php'),
+        app_path('routes/api.php'),
+        app_path('routes/app.php')
+    ]);
 
     /*
     |--------------------------------------------------------------------------

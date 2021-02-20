@@ -1,44 +1,46 @@
 {
     "name": "embryo-vue",
-    "description": "A Vue.js project with Embryo Framework.",
-    "version": "1.0.0",
-    "author": "davidecesarano <davide.cesarano@unipegaso.it>",
-    "license": "MIT",
+    "version": "3.x",
     "private": true,
     "scripts": {
-        "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
-        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+        "serve": "vue-cli-service serve --mode development",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
     },
     "dependencies": {
-        "axios": "^0.18.0",
-        "bootstrap": "^4.3.1",
-        "vue": "^2.6.10",
-        "vue-router": "^3.0.6",
-        "vuetify": "^1.5.12",
-        "vuex": "^3.1.0"
+        "core-js": "^3.8.0",
+        "uuid": "^8.3.1",
+        "vue": "^2.6.11",
+        "vue-router": "^3.4.9",
+        "vuex": "^3.6.0"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.5.9",
+        "@vue/cli-plugin-eslint": "^4.5.9",
+        "@vue/cli-service": "^4.5.9",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.2.2",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint",
+            "no-unused-vars": "off"
+        },
+        "rules": {}
     },
     "browserslist": [
         "> 1%",
         "last 2 versions",
-        "not ie <= 8"
-    ],
-    "devDependencies": {
-        "@babel/core": "^7.4.3",
-        "@babel/preset-env": "^7.4.3",
-        "babel-core": "^6.26.3",
-        "babel-loader": "^8.0.5",
-        "babel-preset-env": "^1.7.0",
-        "cross-env": "^5.2.0",
-        "css-loader": "^2.1.1",
-        "file-loader": "^3.0.1",
-        "node-sass": "^4.11.0",
-        "sass-loader": "^7.1.0",
-        "style-loader": "^0.23.1",
-        "vue-loader": "^15.7.0",
-        "vue-style-loader": "^4.1.2",
-        "vue-template-compiler": "^2.6.10",
-        "webpack": "^4.30.0",
-        "webpack-cli": "^3.3.0",
-        "webpack-dev-server": "^3.3.1"
-    }
+        "not dead"
+    ]
 }

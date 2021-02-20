@@ -1,0 +1,13 @@
+parameters:
+	checkMissingIterableValueType: false
+	treatPhpDocTypesAsCertain: false
+	level: max
+	scanFiles:
+		- public/index.php
+		- bootstrap/app.php
+	paths:
+		- app
+		- bootstrap
+		- public
+		- res
+		- routes

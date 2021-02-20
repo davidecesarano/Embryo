@@ -35,9 +35,6 @@
             ->setOptions($settings['session']['options'])
     );
 
-    // CsrfMiddleware
-    $app->addMiddleware(Embryo\CSRF\CsrfMiddleware::class);
-
     // SetLocaleMiddleware
     $app->addMiddleware(
         (new Embryo\Translate\Middleware\SetLocaleMiddleware)
