@@ -8,9 +8,12 @@
     
     use Embryo\Controller;
     use Psr\Http\Message\ResponseInterface;
+    use App\Controllers\Traits\RenderTrait;
 
     class PageController extends Controller
     {   
+        use RenderTrait;
+
         /**
          * Home
          * 
@@ -19,6 +22,6 @@
         public function index(): ResponseInterface
         {
             $view = $this->get('view');
-            return $view->render($this->response, 'home', ['title' => 'Embryo 2']);
+            return $this->render('home', ['title' => 'Embryo 3']);
         }
     }
