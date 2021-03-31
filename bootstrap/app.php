@@ -10,7 +10,7 @@
     |--------------------------------------------------------------------------
     */
 
-    $dotenv = new Dotenv(ROOT_PATH);
+    $dotenv = new Dotenv(root_path());
     $dotenv->load();
 
     /*
@@ -19,7 +19,7 @@
     |--------------------------------------------------------------------------
     */
     
-    $settings = require_once ROOT_PATH.'bootstrap/settings.php';
+    $settings = require_once root_path('bootstrap/settings.php');
 
     /*
     |--------------------------------------------------------------------------
@@ -36,10 +36,10 @@
     */
 
     $app->import([
-        app_path('bootstrap/services.php'),
-        app_path('bootstrap/middleware.php'),
-        app_path('routes/api.php'),
-        app_path('routes/app.php')
+        root_path('bootstrap/services.php'),
+        root_path('bootstrap/middleware.php'),
+        root_path('routes/api.php'),
+        root_path('routes/app.php')
     ]);
 
     /*
