@@ -13,15 +13,9 @@
     $session   = $container['session'];
     
     // RenderHttpErrorMiddleware
-    $app->addMiddleware(
+    $app->addErrorMiddleware(
         (new App\Middleware\RenderHttpErrorMiddleware)
             ->setView($view)
-    );
-
-    // ErrorHandlerMiddleware
-    $app->addMiddleware(
-        (new Embryo\Error\Middleware\ErrorHandlerMiddleware)
-            ->setErrorHandler($error)
     );
 
     // SecureHeadersMiddleware
