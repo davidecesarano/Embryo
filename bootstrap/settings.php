@@ -120,7 +120,9 @@
             'options' => [
                 'use_cookies'      => false,
                 'use_only_cookies' => true,
-                'save_path'        => ROOT_PATH.'storage/sessions'
+                'save_path'        => ROOT_PATH.'storage/sessions',
+                'cookie_lifetime'  => 86400,
+                'cookie_samesite'  => 'Lax'
             ]
         ],
 

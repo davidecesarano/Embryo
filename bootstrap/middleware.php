@@ -10,7 +10,6 @@
     $settings  = $container['settings'];
     $error     = $container['errorHandler'];
     $view      = $container['view'];
-    $session   = $container['session'];
     
     // RenderHttpErrorMiddleware
     $app->addErrorMiddleware(
@@ -24,7 +23,6 @@
     // SessionMiddleware
     $app->addMiddleware(
         (new Embryo\Session\Middleware\SessionMiddleware)
-            ->setSession($session)
             ->setName($settings['session']['name'])
             ->setOptions($settings['session']['options'])
     );
