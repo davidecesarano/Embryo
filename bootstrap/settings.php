@@ -61,7 +61,7 @@
                 'username'   => getenv('MAIL_USERNAME'),
                 'password'   => getenv('MAIL_PASSWORD'),
                 'exceptions' => true,
-                'debug'      => 2,
+                'debug'      => 0,
                 'html'       => true,
                 'smtpsecure' => 'tls'
             ]
