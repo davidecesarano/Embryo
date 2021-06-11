@@ -8,10 +8,10 @@ You can use this skeleton application to start working on a new Embryo Framework
     * [Directory Structure](#directory-structure)
 * Concepts
     * Life Cycle
-    * PSR-7 (Request and Response)
-    * PSR-15 (Middleware)
+    * PSR-7
+    * Middleware
     * Dependency Container
-* Basics
+* Application
     * [Routing](#routing)
     * Middleware
     * Services
@@ -20,54 +20,57 @@ You can use this skeleton application to start working on a new Embryo Framework
     * Views
 * Package
     * Validation
-    * CSRF
     * Session
     * Cache
-    * Helpers
-* Frontend
-    * Working with Vue.js
-    * Server Side Rendering
+    * Http Client
+    * Translate
+    * Log
+    * CORS
 
-## Requirements
+## Getting Started
+### Requirements
 * PHP >= 7.1
 * URL Rewriting
 
-## Installation
+### Installation
 Using Composer:
 ```
 $ composer create-project davidecesarano/embryo [my-app-name]
 ```
 
-## Configuration
+### Configuration
 Embryo utilizes the DotEnv PHP library. In a fresh Embryo installation, the root directory of your application will contain a `.env.example` file. When you install Embryo via Composer, this file will automatically be renamed to `.env`. 
 
 All variables in your `.env` files are parsed as strings, so some reserved values have been created to allow you to return a wider range of types from the env() function:
 
-## Directory Structure
-| Directory 	| Description                                                                                                                                                                	|
-|-----------	|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| app       	| Contains the core code of your application. <br>This directory contains a variety of additional directories such as `Controllers`, `Helpers`, `Middleware`, `Models` and `Services`.|
-| bootstrap 	| Contains the file which bootstraps the framework. <br> The `app.php` file contains the ,                                                                                  
-| public    	| Contains the entry point for all request (`index.php` file) and the `assets` directory for assets files.                                                                                                                                                                          	|
-| res       	| Contains the resources of your application, such as `lang` (for languages files), `views` (for views files) and `js` (for un-compiled assets files).                                                                                                                                                                          	|
-| routes    	|  Contains the route files. By default,                                                                                                                                                                           	|
-| storage   	|                                                                                                                                                                            	|
+### Directory Structure
+| Directory | Description                                                                                                                                                                                     |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| app       | Contains the core code of your application.  This directory contains a variety of additional directories such as `Controllers`, `Exceptions`, `Helpers`, `Middleware`, `Models` and `Services`. |
+| bootstrap | Contains the file which bootstraps the framework.  The `app.php` file contains the ,                                                                                                            |
+| public    | Contains the entry point for all request (`index.php` file) and the `assets` directory for assets files.                                                                                        |
+| res       | Contains the resources of your application, such as `lang` (for languages files), `views` (for views files) and `js` (for un-compiled assets files).                                            |
+| routes    | Contains all of the route definitions for your application. By default, several route files are included with Laravel: web.php, api.php, console.php, and channels.php.                         |
+| storage   |  Contains your logs (`logs`), compiled templates file (`views`), file based sessions (`sessions`), file caches (`cache`).                                                                       |
 
-## Life Cycle
+## Concepts
+### Life Cycle
 * The app is instantiated in `bootstrap/app.php` with `Embryo\Application` class. During instantiation, Embryo registers services for the dependencies (`bootstrap/services.php`), middlewares (`bootstrap/middleware.php`) and routes files (in `routes` directory). The application constructor accepts an optional settings array that configures the application’s behavior (`bootstrap/settings.php`).
 * In routes file
 * 
 
-## PSR-7 (Request and Response)
-Embryo supports PSR-7 interfaces for its Request and Response objects.
-See full documentation: [Embryo Http](https://github.com/davidecesarano/Embryo-Http)
+### PSR-7
+Embryo supports [PSR-7](https://www.php-fig.org/psr/psr-7/) interfaces for its Request and Response objects.
 
-## PSR-15
-Embryo supports PSR-15 interfaces for its Request and Response objects.
+### Middleware
+You can run code before and after your Embryo application to manipulate the Request and Response objects as you see fit. This is called middleware.
+A middleware implements the [PSR-15 Middleware Interface](https://www.php-fig.org/psr/psr-15/).
 
-## Dependency Container
+### Dependency Container
+Embryo uses an dependency container to prepare, manage, and inject application dependencies. Embryo supports containers that implement [PSR-11](http://www.php-fig.org/psr/psr-11/).
 
-## Routing
+## Application
+### Routing
 You can define application routes using methods on the Router object. Every method accepts two arguments:
 * The route pattern (with optional placeholders)
 * The route callback (a closure or a `class@method` string)
@@ -83,27 +86,25 @@ You can use `all()` and `match()` methods for supporting all methods or specific
 
 See full documentation: [Embryo Routing](https://github.com/davidecesarano/Embryo-Routing#usage).
 
-## Middleware
+### Middleware
 In Embryo you may create a PSR-15 middleware in `app\Middleware` directory. You may add middleware to application, to specific route or to route group.
 
-### Application middleware
+#### Application middleware
 If you want register middleware for every HTTP request, add application middleware in `bootstrap\middleware.php`:
 
 ```php
     $app->addMiddleware(App\Middleware\MyCustomMiddleware::class);
 ```
 
-### Route middleware
+#### Route middleware
 
 
-### Group middleware
+#### Route group middleware
 
+### Services
 
-## Working with Vue.js
-All of the JavaScript dependencies required by your application can be found in the package.json file in the project's root directory. 
-You can install these dependencies using the Node package manager (NPM):
-```
-$ npm install
-```
+### Controllers
 
-### Server Side Rendering
+### Models
+
+### Views
