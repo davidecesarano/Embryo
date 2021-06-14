@@ -22,7 +22,7 @@
      * a variable.
      *
      * @param mixed $data
-     * @return string
+     * @return void
      */
     function debug($data)
     {
@@ -35,7 +35,7 @@
      * Dumps information about a variable.
      *
      * @param mixed $data
-     * @return string
+     * @return void
      */
     function dump($data)
     {
@@ -49,6 +49,17 @@
      * SETTINGS APP
      * ------------------------------------------------------------
      */
+
+    /**
+     * Return setting's app array.
+     * 
+     * @param string $key
+     * @return array
+     */
+    function settings(string $key): array
+    {
+        return Container::get('settings');
+    }
 
     /**
      * Generate a fully qualified URL 
@@ -150,27 +161,6 @@
 
     /**
      * ------------------------------------------------------------
-     * EMBRYO CSRF
-     * ------------------------------------------------------------
-     */
-
-    /**
-     * Return CSRF token from request session 
-     * attribute.
-     *
-     * @param string $name
-     * @return string
-     */
-    function csrf_token($name = 'csrf_token')
-    {
-        $request = Container::get('request');
-        $session = $request->getAttribute('session');
-        $tokens  = $session->get($name, []);
-        return '<input type="hidden" name="'.$name.'" value="'.end($tokens).'">';
-    }
-
-    /**
-     * ------------------------------------------------------------
      * EMBRYO TRANSLATE
      * ------------------------------------------------------------
      */
@@ -193,4 +183,58 @@
             return $messages->get($key, $context);
         }
         return $key;
+    }
+
+    /**
+     * ------------------------------------------------------------
+     * FACADES
+     * ------------------------------------------------------------
+     */
+
+    /**
+     * Cache facade.
+     */
+    function cache()
+    {
+        return Container::get('cache');
+    }
+
+    /**
+     * HTTP Cliente facade.
+     */
+    function http()
+    {
+        return Container::get('http');
+    }
+
+    /**
+     * Logger facade.
+     */
+    function logger()
+    {
+        return Container::get('logger');
+    }
+
+    /**
+     * Request facade.
+     */
+    function request()
+    {
+        return Container::get('request');
+    }
+
+    /**
+     * Response facade.
+     */
+    function response()
+    {
+        return Container::get('response');
+    }
+
+    /**
+     * View facade.
+     */
+    function view()
+    {
+        return Container::get('view');
     }
