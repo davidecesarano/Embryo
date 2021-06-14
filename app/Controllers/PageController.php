@@ -6,9 +6,9 @@
     
     namespace App\Controllers;
     
+    use App\Controllers\Traits\RenderTrait;
     use Embryo\Controller;
     use Psr\Http\Message\ResponseInterface;
-    use App\Controllers\Traits\RenderTrait;
 
     class PageController extends Controller
     {   
@@ -21,7 +21,6 @@
          */
         public function index(): ResponseInterface
         {
-            $view = $this->get('view');
             return $this->render('home', ['title' => 'Embryo 3']);
         }
     }
