@@ -1,5 +1,5 @@
-# Embryo Framework 2 skeleton application
-You can use this skeleton application to start working on a new Embryo Framework 2 application.
+# Embryo Framework 3 skeleton application
+You can use this skeleton application to start working on a new Embryo Framework 3 application.
 
 * Getting Started
     * [Requirements](#requirements)
