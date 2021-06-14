@@ -1,20 +1,28 @@
 <?php
     
-    /*
-    |--------------------------------------------------------------------------
-    | PSR-15 Middleware
-    |--------------------------------------------------------------------------
-    */
+    /** 
+     * PSR-15 Middleware
+     * 
+     * @var Embryo\Application $app 
+     */
 
     $container = $app->getContainer();
-    $settings  = $container['settings'];
-    $error     = $container['errorHandler'];
-    $view      = $container['view'];
+    $settings  = $container->get('settings');
+    $error     = $container->get('errorHandler');
+    $view      = $container->get('view');
     
-    // RenderHttpErrorMiddleware
-    $app->addErrorMiddleware(
-        (new App\Middleware\RenderHttpErrorMiddleware)
-            ->setView($view)
+    // ErrorHandlerMiddleware
+    $app->addErrorMiddleware(App\Exceptions\ErrorRenderer::class);
+
+    // CorsMiddleware
+    $app->addMiddleware(
+        (new Embryo\CORS\CorsMiddleware)
+            ->setAllowedOrigins($settings['cors']['allowed_origins'])
+            ->setAllowedMethods($settings['cors']['allowed_methods'])
+            ->setAllowedHeaders($settings['cors']['allowed_headers'])
+            ->setExposedHeaders($settings['cors']['exposed_headers'])
+            ->setMaxAge($settings['cors']['max_age'])
+            ->setSupportsCredentials($settings['cors']['supports_credentials'])
     );
 
     // SecureHeadersMiddleware

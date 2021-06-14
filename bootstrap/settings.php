@@ -134,5 +134,20 @@
 
         'translate' => [
             'languagePath' => ROOT_PATH.'res/lang'
+        ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | CORS
+        |--------------------------------------------------------------------------
+        */
+
+        'cors' => [
+            'allowed_origins'      => ['*'],
+            'allowed_methods'      => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+            'allowed_headers'      => ['X-Requested-With', 'Content-Type', 'Accept', 'Origin', 'Authorization'],
+            'exposed_headers'      => [],
+            'max_age'              => 0,
+            'supports_credentials' => false
         ]
     ];
