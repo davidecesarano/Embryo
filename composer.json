@@ -16,7 +16,8 @@
         "davidecesarano/embryo-framework": "~3.0",
         "vlucas/phpdotenv": "v2.5.1",
         "phpmailer/phpmailer": "~6.0",
-        "firebase/php-jwt": "^5.3"
+        "firebase/php-jwt": "^5.3",
+        "league/flysystem": "^2.1"
     },
     "autoload": {
         "psr-4": {
