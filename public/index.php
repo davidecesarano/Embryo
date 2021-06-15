@@ -1,13 +1,5 @@
 <?php 
     
-    /*
-    |--------------------------------------------------------------------------
-    | ROOT_PATH COSTANT
-    |--------------------------------------------------------------------------
-    */
-
-    define('ROOT_PATH', realpath(__DIR__.'/../').DIRECTORY_SEPARATOR);
-    
     /** 
      * --------------------------------------------------------------------------
      * ROOT_PATH FUNCTION
@@ -19,7 +11,7 @@
 
     function root_path(string $path = null): string 
     {
-        $root = ROOT_PATH;
+        $root = realpath(__DIR__.'/../').DIRECTORY_SEPARATOR;
         return $path ? $root.ltrim($path, DIRECTORY_SEPARATOR) : $root;
     }
 
@@ -29,7 +21,7 @@
     |--------------------------------------------------------------------------
     */
      
-    require ROOT_PATH.'vendor/autoload.php';
+    require root_path('vendor/autoload.php');
     
     /*
     |--------------------------------------------------------------------------
@@ -37,7 +29,7 @@
     |--------------------------------------------------------------------------
     */
     
-    require_once ROOT_PATH.'bootstrap/app.php';
+    require_once root_path('bootstrap/app.php');
 
     /** 
      * --------------------------------------------------------------------------

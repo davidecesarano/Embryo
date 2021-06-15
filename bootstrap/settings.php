@@ -9,7 +9,7 @@
         */
 
         'app' => [
-            'root_path' => ROOT_PATH,
+            'root_path' => root_path(),
             'name'      => getenv('APP_NAME'),
             'url'       => getenv('APP_URL'),
             'path'      => getenv('APP_PATH'),
@@ -84,8 +84,8 @@
         */
 
         'view' => [
-            'templatePath' => ROOT_PATH.'res/views',
-            'compilerPath' => ROOT_PATH.'storage/views'
+            'templatePath' => root_path('res/views'),
+            'compilerPath' => root_path('storage/views')
         ],
 
         /*
@@ -95,7 +95,7 @@
         */
 
         'logger' => [
-            'logPath' => ROOT_PATH.'storage/logs'
+            'logPath' => root_path('storage/logs')
         ],
 
         /*
@@ -105,7 +105,7 @@
         */
 
         'cache' => [
-            'cachePath' => ROOT_PATH.'storage/cache',
+            'cachePath' => root_path('storage/cache'),
             'ttl'       => 86400
         ],
 
@@ -120,7 +120,7 @@
             'options' => [
                 'use_cookies'      => false,
                 'use_only_cookies' => true,
-                'save_path'        => ROOT_PATH.'storage/sessions',
+                'save_path'        => root_path('storage/sessions'),
                 'cookie_lifetime'  => 86400,
                 'cookie_samesite'  => 'Lax'
             ]
@@ -133,7 +133,7 @@
         */
 
         'translate' => [
-            'languagePath' => ROOT_PATH.'res/lang'
+            'languagePath' => root_path('res/lang')
         ],
 
         /*
