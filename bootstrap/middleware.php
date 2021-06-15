@@ -8,8 +8,6 @@
 
     $container = $app->getContainer();
     $settings  = $container->get('settings');
-    $error     = $container->get('errorHandler');
-    $view      = $container->get('view');
     
     // ErrorHandlerMiddleware
     $app->addErrorMiddleware(App\Exceptions\ErrorRenderer::class);
