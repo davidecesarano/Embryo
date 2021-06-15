@@ -53,12 +53,15 @@
     /**
      * Return setting's app array.
      * 
-     * @param string $key
-     * @return array
+     * @param string|null $key
+     * @return mixed
      */
-    function settings(string $key): array
+    function app_settings(string $key = null)
     {
-        return Container::get('settings');
+        $settings = Container::get('settings');
+        if (!$key) return $settings;
+        if ($key && isset($settings[$key])) return $settings[$key];
+        else return NULL;
     }
 
     /**
@@ -68,7 +71,7 @@
      * @param string|null $path
      * @return string
      */
-    function app_url(string $path = null)
+    function app_url(string $path = null): string
     {
         $url = Container::get('baseUrl');
         return (!$path) ? $url : $url.'/'.trim($path, '/');
@@ -81,7 +84,7 @@
      * @param string|null $path
      * @return string
      */
-    function app_path(string $path = null) 
+    function app_path(string $path = null): string 
     {
         $settings = Container::get('settings');
         $app_path = rtrim($settings['app']['root_path'], '/'); 
@@ -93,10 +96,10 @@
      *
      * @return string
      */
-    function app_name()
+    function app_name(): string
     {
-        $settings = Container::get('settings');
-        return $settings['app']['name'];
+        $app = app_settings('app');
+        return $app['name'];
     }
 
     /**
@@ -104,10 +107,10 @@
      *
      * @return string
      */
-    function app_locale()
+    function app_locale(): string
     {
-        $settings = Container::get('settings');
-        return $settings['app']['locale'];
+        $app = app_settings('app');
+        return $app['locale'];
     }
 
     /**
@@ -115,10 +118,10 @@
      *
      * @return string
      */
-    function app_charset()
+    function app_charset(): string
     {
-        $settings = Container::get('settings');
-        return $settings['app']['charset'];
+        $app = app_settings('app');
+        return $app['charset'];
     }
 
     /**
@@ -127,7 +130,7 @@
      * @param string|null $path
      * @return string
      */
-    function site_url(string $path = null)
+    function site_url(string $path = null): string
     {
         return app_url($path);
     }
@@ -149,7 +152,7 @@
      * @param bool $versioning
      * @return string
      */
-    function asset(string $path, $versioning = false)
+    function asset(string $path, $versioning = false): string
     {
         if ($versioning) {
             $res = filemtime(app_path('public/assets/'.trim($path, '/')));
@@ -172,7 +175,7 @@
      * @param array $context
      * @return string
      */
-    function trans(string $key, array $context = [])
+    function trans(string $key, array $context = []): string
     {
         $locale = Container::get('settings')['app']['locale'];
         $session = Container::get('request')->getAttribute('session');
@@ -193,48 +196,73 @@
 
     /**
      * Cache facade.
+     * 
+     * @return Psr\SimpleCache\CacheInterface
      */
-    function cache()
+    function cache(): Psr\SimpleCache\CacheInterface
     {
         return Container::get('cache');
     }
 
     /**
      * HTTP Cliente facade.
+     * 
+     * @return Embryo\Http\Client\ClientFactory
      */
-    function http()
+    function http(): Embryo\Http\Client\ClientFactory
     {
         return Container::get('http');
     }
 
     /**
      * Logger facade.
+     * 
+     * @return Psr\Log\LoggerInterface
      */
-    function logger()
+    function logger(): Psr\Log\LoggerInterface
     {
         return Container::get('logger');
     }
 
     /**
      * Request facade.
+     * 
+     * @return Psr\Http\Message\ServerRequestInterface
      */
-    function request()
+    function request(): Psr\Http\Message\ServerRequestInterface
     {
         return Container::get('request');
     }
 
     /**
      * Response facade.
+     * 
+     * @return Psr\Http\Message\ResponseInterface
      */
-    function response()
+    function response(): Psr\Http\Message\ResponseInterface
     {
         return Container::get('response');
     }
 
     /**
-     * View facade.
+     * Filesystem facade.
+     * 
+     * @return League\Flysystem\FilesystemOperator 
      */
-    function view()
+    function storage(): League\Flysystem\FilesystemOperator 
     {
-        return Container::get('view');
+        return Container::get('storage');
+    }
+
+    /**
+     * View facade.
+     * 
+     * @param string $template 
+     * @param array $data
+     * @return Psr\Http\Message\ResponseInterface
+     */
+    function view(string $template, array $data = []): Psr\Http\Message\ResponseInterface
+    {   
+        $response = response();
+        return Container::get('view')->render($response, $template, $data);
     }
