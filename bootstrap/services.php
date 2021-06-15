@@ -22,5 +22,6 @@
         Embryo\Services\ValidationService::class,
         Embryo\Services\TranslateService::class,
         Embryo\Services\HttpClientService::class,
-        App\Services\MailService::class
+        App\Services\MailService::class,
+        App\Services\StorageService::class
     ]);
