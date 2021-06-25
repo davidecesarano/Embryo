@@ -84,7 +84,7 @@
         */
 
         'view' => [
-            'templatePath' => root_path('res/views'),
+            'templatePath' => root_path('views'),
             'compilerPath' => root_path('storage/views')
         ],
 
@@ -133,7 +133,7 @@
         */
 
         'translate' => [
-            'languagePath' => root_path('res/lang')
+            'languagePath' => root_path('translations')
         ],
 
         /*
