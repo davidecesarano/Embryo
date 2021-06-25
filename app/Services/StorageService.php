@@ -19,10 +19,13 @@
          */
         public function register()
         {
-            $this->container->set('storage', function($container){
-                $adapter = new LocalFilesystemAdapter(root_path());
+            $this->container->set(Filesystem::class, function($container) {
+                $settings = $container->get('settings');
+                $adapter = new LocalFilesystemAdapter($settings['app']['root_path']);
                 $filesystem = new Filesystem($adapter);
                 return $filesystem;
             });
+
+            $this->container->alias('storage', Filesystem::class);
         }
     }
