@@ -197,9 +197,9 @@
     /**
      * Cache facade.
      * 
-     * @return Psr\SimpleCache\CacheInterface
+     * @return Embryo\Cache\Cache
      */
-    function cache(): Psr\SimpleCache\CacheInterface
+    function cache(): Embryo\Cache\Cache
     {
         return Container::get('cache');
     }
@@ -217,9 +217,9 @@
     /**
      * Logger facade.
      * 
-     * @return Psr\Log\LoggerInterface
+     * @return Embryo\Log\StreamLogger
      */
-    function logger(): Psr\Log\LoggerInterface
+    function logger(): Embryo\Log\StreamLogger
     {
         return Container::get('logger');
     }
@@ -227,9 +227,9 @@
     /**
      * Request facade.
      * 
-     * @return Psr\Http\Message\ServerRequestInterface
+     * @return Embryo\Http\Message\ServerRequest
      */
-    function request(): Psr\Http\Message\ServerRequestInterface
+    function request(): Embryo\Http\Message\ServerRequest
     {
         return Container::get('request');
     }
@@ -237,9 +237,9 @@
     /**
      * Response facade.
      * 
-     * @return Psr\Http\Message\ResponseInterface
+     * @return Embryo\Http\Message\Response
      */
-    function response(): Psr\Http\Message\ResponseInterface
+    function response(): Embryo\Http\Message\Response
     {
         return Container::get('response');
     }
@@ -247,9 +247,9 @@
     /**
      * Filesystem facade.
      * 
-     * @return League\Flysystem\FilesystemOperator 
+     * @return League\Flysystem\Filesystem 
      */
-    function storage(): League\Flysystem\FilesystemOperator 
+    function storage(): League\Flysystem\Filesystem 
     {
         return Container::get('storage');
     }
@@ -259,9 +259,9 @@
      * 
      * @param string $template 
      * @param array $data
-     * @return Psr\Http\Message\ResponseInterface
+     * @return Embryo\Http\Message\Response
      */
-    function view(string $template, array $data = []): Psr\Http\Message\ResponseInterface
+    function view(string $template, array $data = []): Embryo\Http\Message\Response
     {   
         $response = response();
         return Container::get('view')->render($response, $template, $data);
