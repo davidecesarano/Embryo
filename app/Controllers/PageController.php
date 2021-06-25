@@ -7,16 +7,16 @@
     namespace App\Controllers;
     
     use Embryo\Controller;
-    use Psr\Http\Message\ResponseInterface;
+    use Embryo\Http\Message\Response;
 
     class PageController extends Controller
     {
         /**
          * Home
          * 
-         * @return ResponseInterface
+         * @return Response
          */
-        public function index(): ResponseInterface
+        public function index(): Response
         {
             return view('home', ['title' => 'Embryo 3']);
         }
