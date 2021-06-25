@@ -9,5 +9,6 @@ parameters:
 		- app
 		- bootstrap
 		- public
-		- res
 		- routes
+		- translations
+		- views
