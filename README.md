@@ -13,12 +13,12 @@ You can use this skeleton application to start working on a new Embryo Framework
     * [Dependency Container](#dependency-container)
 * Application
     * [Routing](#routing)
-    * [Middleware](#middleware)
-    * Controllers
+    * [Middleware](#middleware-1)
+    * [Controllers](#controllers)
+    * [Service Providers](#service-providers)
     * Models
     * Views
-    * Services
-* Package
+* Packages
     * Validation
     * Session
     * Cache
@@ -100,7 +100,7 @@ $app->import([
     root_path('bootstrap/services.php'),
     root_path('bootstrap/middleware.php'),
     root_path('routes/api.php'),
-    root_path('routes/app.php')
+    root_path('routes/app.php'),
     root_path('routes/my_route_file.php')
 ]);
 ```
@@ -238,8 +238,55 @@ class UserController extends Controller
     }
 }
 ```
-### Services
+Alternatively, you may to access to `request()` and `response()` helpers:
+```php
+namespace App\Controllers;
 
+use Embryo\Controller;
+use Embryo\Http\Message\Response;
+
+class UserController extends Controller
+{
+    /**
+     * @return Response
+     */
+    public function store(): Response
+    {
+       $params = request()->getParsedBody();
+       return response()->write('Hello!');
+    }
+}
+```
+### Service Providers
+Service providers are the central place of all Embryo application bootstrapping. Your own application, as well as all of Embryo's core services, are bootstrapped via service providers.
+#### Writing a service
+The service providers era located in `app/Services` directory.
+All service providers extend the `Embryo\Container\ServiceProvider` class and contains a `register` method. Within the register method, you should only bind things into the service container.
+```php
+namespace App\Services;
+
+use Embryo\Container\ServiceProvider;
+
+class TestService extends ServiceProvider
+{
+    /**
+     * Registers service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->container->set('test', function($container){
+            return 'Hello from my test service';
+        });
+    }
+}
+```
+#### Registering a service
 ### Models
 
 ### Views
+
+## Packages
+
+### Validation
